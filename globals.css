@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.98 0.008 125);
+  --foreground: oklch(0.23 0.035 145);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.23 0.035 145);
+  --primary: oklch(0.49 0.13 148);
+  --primary-foreground: oklch(0.99 0 0);
+  --muted-foreground: oklch(0.57 0.035 145);
+  --border: oklch(0.9 0.025 135);
+  --ring: oklch(0.7 0.12 145);
+  --chart-1: oklch(0.63 0.14 148);
+  --chart-2: oklch(0.75 0.08 210);
+  --chart-3: oklch(0.78 0.11 86);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { font-family: Arial, Helvetica, sans-serif; }
+  body { @apply bg-background text-foreground; }
+  button, input, select, textarea { font: inherit; }
+}
+
+@keyframes enter { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+main > * { animation: enter 240ms ease-out both; }
+::selection { background: #cfead3; color: #1f5733; }
+
+.dark { color-scheme: dark; }
+.dark body { background: #132118; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+.foodloop-app { min-width: 1180px; letter-spacing: -0.01em; }
+.foodloop-sidebar { font-family: Arial, Helvetica, sans-serif; }
+.foodloop-app main { min-height: 100vh; }
+.foodloop-app article button { transition: background-color 160ms ease, transform 160ms ease; }
+.foodloop-app article button:hover { background: #d9eee5; transform: translateY(-1px); }
+@media (max-width: 1023px) { .foodloop-app main { margin-left: 0; } }
+.foodloop-sidebar nav { padding: 0 8px; }
+.foodloop-sidebar nav button { min-height: 38px; border-radius: 20px; padding-inline: 10px; font-size: 13px; font-weight: 500; }
+.foodloop-sidebar nav button svg { color: #668070; }
+.foodloop-sidebar nav button.bg-\[\#e7f6e9\] { background: #e3f3ed; color: #008f5a; }
+.foodloop-sidebar nav button.bg-\[\#e7f6e9\] svg { color: #008f5a; }
+.foodloop-app main { max-width: none; padding: 42px 4.5% 72px; }
+.foodloop-app main > div { max-width: 1240px; margin-inline: auto; }
+.foodloop-app main h1 { font-size: 36px; }
+.foodloop-app main h2 { font-size: 22px; }
+.foodloop-app main p { font-size: 15px; }
+.foodloop-app main input, .foodloop-app main select, .foodloop-app main textarea { font-size: 14px; }
+.foodloop-app main article { padding: 20px; }
+.foodloop-app main article h3 { font-size: 16px; }
+.foodloop-app main article .mt-4 { margin-top: 1.25rem; }
+.foodloop-app section.rounded-2xl, .foodloop-app .rounded-2xl.border { border-color: #d8e4dc; border-radius: 16px; box-shadow: 0 8px 18px -18px rgba(28, 74, 48, .42); }
+.foodloop-app button.bg-\[\#287d49\] { background: #008f5a; border-radius: 10px; }
+.foodloop-app button.bg-\[\#287d49\]:hover { background: #007a4c; }
+.foodloop-app h2 { color: #10271b; }
+.foodloop-app .grid.gap-4.sm\:grid-cols-2.xl\:grid-cols-4 > div { min-height: 0; padding: 16px; }
+.foodloop-app .grid.gap-4.sm\:grid-cols-2.xl\:grid-cols-4 > div > div:first-child > div { border-radius: 50%; background: #e4f4ef; color: #008f5a; }
+.foodloop-app .grid.gap-4.sm\:grid-cols-2.xl\:grid-cols-4 > div > div:nth-child(2) { font-size: 23px; }
+.foodloop-app .grid.gap-4.sm\:grid-cols-2.xl\:grid-cols-4 > div > div:last-child { font-size: 11px; }
+.foodloop-app > div > header { display: none; }
+
+@theme inline {
+  --color-sidebar-ring: var(--ring);
+  --color-sidebar-border: var(--border);
+  --color-sidebar-accent-foreground: var(--foreground);
+  --color-sidebar-accent: var(--background);
+  --color-sidebar-primary-foreground: var(--primary-foreground);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-foreground: var(--foreground);
+  --color-sidebar: var(--card);
+}
+
+
